@@ -1,0 +1,17 @@
+{
+  "name": "Dockerfile.npm",
+  "questions": [
+    {
+      "type": "input",
+      "message": "What command do you want to use to start the app?",
+      "var_name": "START_COMMAND",
+      "default": "npm start"
+    },
+    {
+      "type": "input",
+      "message": "What port does your server listen on? ",
+      "var_name": "PORT",
+      "default": "3000"
+    }
+  ]
+}

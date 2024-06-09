@@ -1,0 +1,19 @@
+{
+  "questions": [
+    {
+      "type": "input",
+      "message": "What Node version are you using?",
+      "var_name": "NODE_VERSION",
+      "default": "20.14.0"
+    },
+    {
+      "type": "select",
+      "message": "Which package manager are you using?",
+      "var_name": "NODE_PACKAGE_MANAGER",
+      "options": ["npm", "yarn", "pnpm"]
+    }
+  ],
+  "after": {
+    "goto": "/templates/node/{{NODE_PACKAGE_MANAGER}}"
+  }
+}

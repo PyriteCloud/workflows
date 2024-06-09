@@ -1,0 +1,16 @@
+{
+  "name": "Dockerfile.dart",
+  "questions": [
+    {
+      "type": "input",
+      "message": "What is the name of the project?",
+      "var_name": "NAME"
+    },
+    {
+      "type": "input",
+      "message": "What dart version are you using?",
+      "var_name": "DART_VERSION",
+      "default": "stable"
+    }
+  ]
+}
