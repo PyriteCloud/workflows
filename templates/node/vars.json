@@ -1,16 +1,22 @@
 {
   "questions": [
     {
-      "type": "input",
+      "type": "select",
       "message": "What Node version are you using?",
       "var_name": "NODE_VERSION",
-      "default": "20.14.0"
+      "options": ["lts", "latest"]
     },
     {
       "type": "select",
       "message": "Which package manager are you using?",
       "var_name": "NODE_PACKAGE_MANAGER",
       "options": ["npm", "yarn", "pnpm"]
+    },
+    {
+      "type": "input",
+      "message": "What is the output directory for the build?",
+      "var_name": "OUTPUT_DIR",
+      "default": "dist"
     }
   ],
   "after": {
