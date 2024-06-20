@@ -7,16 +7,22 @@
       "options": ["lts", "latest"]
     },
     {
-      "type": "select",
-      "message": "Which package manager are you using?",
-      "var_name": "NODE_PACKAGE_MANAGER",
-      "options": ["npm", "yarn", "pnpm"]
-    },
-    {
       "type": "input",
       "message": "What is the output directory for the build?",
       "var_name": "OUTPUT_DIR",
       "default": "dist"
+    },
+    {
+      "type": "input",
+      "message": "What port does your server listen on? ",
+      "var_name": "PORT",
+      "default": "3000"
+    },
+    {
+      "type": "select",
+      "message": "Which package manager are you using?",
+      "var_name": "NODE_PACKAGE_MANAGER",
+      "options": ["npm", "pnpm"]
     }
   ],
   "after": {

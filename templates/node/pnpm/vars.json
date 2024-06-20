@@ -1,17 +1,23 @@
 {
-  "name": "Dockerfile.npm",
+  "name": "Dockerfile.pnpm",
   "questions": [
+    {
+      "type": "input",
+      "message": "What pnpm version do you want to use?",
+      "var_name": "PNPM_VERSION",
+      "default": "latest"
+    },
     {
       "type": "input",
       "message": "What command do you want to use to build the app?",
       "var_name": "BUILD_COMMAND",
-      "default": "npm run build"
+      "default": "pnpm run build"
     },
     {
       "type": "input",
       "message": "What command do you want to use to start the app?",
       "var_name": "START_COMMAND",
-      "default": "npm start"
+      "default": "pnpm start"
     }
   ]
 }
