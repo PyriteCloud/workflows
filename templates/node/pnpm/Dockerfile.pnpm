@@ -8,7 +8,6 @@ ARG PORT={{PORT}}
 ARG START_COMMAND="{{START_COMMAND}}"
 ARG BUILD_COMMAND="{{BUILD_COMMAND}}"
 ARG OUTPUT_DIR="{{OUTPUT_DIR}}"
-ARG PNPM_VERSION="{{PNPM_VERSION}}"
 
 ################################################################################
 # Use node image for base image for all stages.
@@ -17,7 +16,6 @@ FROM chainguard/node-lts:latest-dev as base
 {{else}}
 FROM chainguard/node:latest-dev as base
 {{/if}}
-ARG PNPM_VERSION
 
 # Install pnpm
 USER root
