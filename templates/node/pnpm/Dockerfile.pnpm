@@ -13,17 +13,20 @@ ARG PNPM_VERSION="{{PNPM_VERSION}}"
 ################################################################################
 # Use node image for base image for all stages.
 {{#if (isEqual NODE_VERSION 'lts')}}
-FROM node:lts-slim as base
+FROM chainguard/node-lts:latest-dev as base
 {{else}}
-FROM node:slim as base
+FROM chainguard/node:latest-dev as base
 {{/if}}
 ARG PNPM_VERSION
+
+# Install pnpm
+USER root
+RUN apk add pnpm
+
+# Set user to non-root node
+USER node
 # Set working directory for all build stages.
 WORKDIR /app
-
-# Install pnpm.
-RUN --mount=type=cache,target=/root/.npm \
-    npm install -g pnpm@${PNPM_VERSION}
 
 ################################################################################
 # Create a stage for installing production dependecies.
@@ -59,11 +62,7 @@ RUN $BUILD_COMMAND_ENV
 ################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
 # where the necessary files are copied from the build stage.
-{{#if (isEqual NODE_VERSION 'lts')}}
-FROM chainguard/node-lts:latest as base
-{{else}}
-FROM chainguard/node:latest as base
-{{/if}}
+FROM base as final
 ARG PORT
 ARG START_COMMAND
 ARG OUTPUT_DIR
